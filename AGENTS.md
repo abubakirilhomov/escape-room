@@ -14,13 +14,16 @@ Before making changes, read:
 
 Read other documents when the task touches their area.
 
-## 2. Fixed technology constraints
+## 2. Technology stack
 
-- Use only HTML5, CSS3 and Vanilla JavaScript.
-- Use ES modules (`type="module"`) only when the roadmap reaches the modularization stage. Until then, keep the beginner-friendly structure described in `docs/ARCHITECTURE.md`.
-- No React, Vue, Angular, TypeScript, Node.js backend, database, build tool or package dependencies for the MVP.
-- No external APIs or authentication.
-- The game must run in a modern browser from a local static server.
+- Use HTML5, Tailwind CSS v4 and Vanilla JavaScript.
+- Use Vite as the development server and build tool.
+- Use Tailwind CSS utility classes for styling. Write custom CSS only when Tailwind utilities are insufficient.
+- Vite uses ES modules (`type="module"`) natively. Keep all game logic in a single `src/main.js` file until the roadmap reaches the modularization stage.
+- Additional libraries may be introduced when the roadmap requires them. Record each new dependency in `docs/DECISIONS.md`.
+- No React, Vue, Angular or TypeScript for the MVP.
+- No backend server, database or external APIs.
+- The game must run through the Vite dev server (`npm run dev`) during development.
 - Use semantic HTML and accessible buttons/labels.
 - Store MVP progress in memory only. Do not add `localStorage` until explicitly requested in a later stage.
 

@@ -4,15 +4,14 @@ This file records decisions that should not be changed silently.
 
 ## ADR-001 — Use Vanilla JavaScript
 
-**Status:** Accepted
+**Status:** Partially superseded by ADR-006 and ADR-007
 
-**Decision:** The MVP uses HTML, CSS and Vanilla JavaScript.
+**Decision:** The MVP uses Vanilla JavaScript for game logic. Styling uses Tailwind CSS (see ADR-007). Build tooling uses Vite (see ADR-006).
 
 **Reason:** The project is a learning exercise for students currently studying JavaScript fundamentals. A framework would hide or replace some of the DOM and JavaScript work they need to practice.
 
 **Consequences:**
 - No React or other UI framework.
-- No build system required for the MVP.
 - DOM updates are written explicitly.
 - Code should remain simple and readable.
 
@@ -68,3 +67,44 @@ This file records decisions that should not be changed silently.
 - Antigravity rules: https://antigravity.google/docs/rules/
 
 **Consequence:** Keep `AGENTS.md` concise, stable and focused on project-wide constraints. Put detailed product and architecture information in `docs/`.
+
+## ADR-006 — Use Vite as development server and build tool
+
+**Status:** Accepted
+
+**Decision:** Use Vite for the development server (HMR) and production builds.
+
+**Reason:** Vite provides fast hot module replacement, native ES module support, and seamless integration with Tailwind CSS v4. Students learn modern development workflows including `npm install`, `npm run dev` and `package.json`.
+
+**Consequences:**
+- `npm` and `package.json` are part of the project from Stage 0.
+- The game runs via `npm run dev`, not by opening `index.html` directly.
+- ES modules (`type="module"`) are used natively by Vite.
+- A `vite.config.js` file is required in the project root.
+
+## ADR-007 — Use Tailwind CSS v4 for styling
+
+**Status:** Accepted
+
+**Decision:** Use Tailwind CSS v4 with the `@tailwindcss/vite` plugin as the primary styling tool.
+
+**Reason:** Tailwind's utility-first approach accelerates UI development and teaches students a widely used CSS framework. Version 4 simplifies configuration with CSS-based setup (`@import "tailwindcss"`) and requires no separate config files.
+
+**Consequences:**
+- Styling is done primarily with Tailwind utility classes in HTML.
+- Custom CSS is written in `src/style.css` only when Tailwind utilities are insufficient.
+- No separate `tailwind.config.js` or `postcss.config.js` needed (Tailwind v4 uses CSS-based config and the Vite plugin).
+- `tailwindcss` and `@tailwindcss/vite` are dev dependencies.
+
+## ADR-008 — Allow additional libraries when needed
+
+**Status:** Accepted
+
+**Decision:** Additional npm libraries may be introduced at later roadmap stages when they serve a clear purpose.
+
+**Reason:** Restricting all dependencies limits learning opportunities. Students should learn to evaluate, install and use libraries as part of modern JavaScript development.
+
+**Consequences:**
+- Each new library must be recorded as a decision in this file.
+- Libraries must not replace JavaScript fundamentals the student needs to practice.
+- Prefer lightweight, well-documented libraries.

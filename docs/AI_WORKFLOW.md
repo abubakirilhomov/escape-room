@@ -35,7 +35,7 @@ Before coding:
 
 Constraints:
 - follow AGENTS.md and docs/;
-- use HTML, CSS and Vanilla JavaScript only;
+- use HTML, Tailwind CSS and Vanilla JavaScript;
 - do not implement future stages;
 - keep the code understandable to a beginner;
 - do not rewrite unrelated working code.

@@ -111,3 +111,5 @@ Feedback should be visible without requiring the player to inspect the browser c
 ```
 
 This is a suggested structure, not a requirement to copy without understanding.
+
+**Styling note:** Use Tailwind CSS utility classes directly on HTML elements for layout, spacing, colors and typography. Use semantic class names or `id` attributes only when JavaScript needs to query the element (e.g., `id="room-title"`, `id="inventory-panel"`).

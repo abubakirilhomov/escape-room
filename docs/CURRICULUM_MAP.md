@@ -13,6 +13,8 @@ This project is designed to reinforce the topics already covered in class. It sh
 | `for` and `forEach` | Render room items and inventory | Iterate over collections |
 | DOM and BOM | Update panels, handle clicks, countdown | `querySelector`, `textContent`, events, `setInterval` |
 | Functions | Game actions and rendering | Parameters, return values, reusable logic |
+| Package managers and build tools | Project setup, dev server | `npm install`, `npm run dev`, `package.json`, Vite |
+| CSS frameworks | UI styling and layout | Tailwind utility classes, responsive design, `@import` |
 
 ## Teaching checkpoints
 
@@ -30,7 +32,6 @@ Do not require students to learn all of these for the MVP:
 - classes and inheritance;
 - complex closures;
 - async/await and network requests;
-- bundlers and package managers;
 - state-management libraries;
 - advanced algorithms.
 

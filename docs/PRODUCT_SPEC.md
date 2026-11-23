@@ -5,7 +5,7 @@
 **Name:** Escape Room: Secret Laboratory  
 **Type:** Single-player, browser-based puzzle / escape-room game  
 **Platform:** Desktop browser first; responsive layout as a secondary requirement  
-**Technology:** HTML, CSS, Vanilla JavaScript  
+**Technology:** HTML, Tailwind CSS v4, Vanilla JavaScript, Vite  
 **Audience:** Students learning beginner JavaScript
 
 ## 2. Product goal

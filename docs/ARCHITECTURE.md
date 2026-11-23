@@ -15,66 +15,73 @@ The goal is separation of responsibilities without introducing advanced patterns
 ## 2. Runtime flow
 
 ```text
-index.html
+Vite dev server
    |
-   +--> style.css
-   |
-   +--> script.js
+   +--> index.html
           |
-          +--> initializeGame()
-          |       |
-          |       +--> createInitialState()
-          |       +--> renderGame()
-          |       +--> startTimer()
+          +--> src/style.css (@import "tailwindcss")
           |
-          +--> Event listeners
-                  |
-                  +--> Game logic
-                  |      +--> collectItem()
-                  |      +--> moveToRoom()
-                  |      +--> submitPuzzleAnswer()
-                  |      +--> activateExit()
-                  |
-                  +--> render functions
-                         +--> renderRoom()
-                         +--> renderInventory()
-                         +--> renderStatus()
-                         +--> renderFeedback()
+          +--> src/main.js (import "./style.css")
+                 |
+                 +--> initializeGame()
+                 |       |
+                 |       +--> createInitialState()
+                 |       +--> renderGame()
+                 |       +--> startTimer()
+                 |
+                 +--> Event listeners
+                         |
+                         +--> Game logic
+                         |      +--> collectItem()
+                         |      +--> moveToRoom()
+                         |      +--> submitPuzzleAnswer()
+                         |      +--> activateExit()
+                         |
+                         +--> render functions
+                                +--> renderRoom()
+                                +--> renderInventory()
+                                +--> renderStatus()
+                                +--> renderFeedback()
 ```
 
 ## 3. Suggested project structure
 
 ### Beginner stage
 
-Start with the simplest structure:
+Start with the standard Vite + Tailwind CSS v4 structure:
 
 ```text
 escape-room/
 ├── index.html
-├── style.css
-├── script.js
-├── assets/
+├── vite.config.js
+├── package.json
+├── public/
 │   ├── images/
 │   └── sounds/
+├── src/
+│   ├── style.css
+│   └── main.js
 ├── README.md
 ├── AGENTS.md
 └── docs/
 ```
 
-Students should initially be able to find all JavaScript logic in one file. This makes the relationship between functions and state visible.
+Students should initially be able to find all JavaScript logic in `src/main.js`. This makes the relationship between functions and state visible.
 
 ### Later refactoring stage (only when the class is ready)
 
-If `script.js` becomes too large, split it into ES modules:
+If `src/main.js` becomes too large, split it into ES modules within `src/`:
 
 ```text
 escape-room/
 ├── index.html
-├── style.css
-├── assets/
+├── vite.config.js
+├── package.json
+├── public/
 │   ├── images/
 │   └── sounds/
 └── src/
+    ├── style.css
     ├── main.js
     ├── data/
     │   ├── rooms.js

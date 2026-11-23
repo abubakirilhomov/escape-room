@@ -4,17 +4,23 @@ Build the game in small, reviewable stages. Do not skip ahead to advanced featur
 
 ## Stage 0 — Project foundation
 
-**Goal:** Create the repository and a working static page.
+**Goal:** Create the repository with Vite and Tailwind CSS v4, verify the dev server runs.
 
 Tasks:
-- Create `index.html`, `style.css`, `script.js`.
-- Link CSS and JavaScript correctly.
-- Add semantic page structure.
-- Add a simple page title and placeholder sections.
+- Initialize project with `npm create vite@latest` (Vanilla JS template).
+- Install Tailwind CSS: `npm install -D tailwindcss @tailwindcss/vite`.
+- Configure `vite.config.js` with the `@tailwindcss/vite` plugin.
+- Create `src/style.css` with `@import "tailwindcss"`.
+- Create `src/main.js` with `import "./style.css"` and a placeholder initialization.
+- Update `index.html`: link `src/main.js` as module, add semantic page structure.
+- Verify `npm run dev` starts without errors.
+- Add a simple page title and placeholder sections with Tailwind utility classes.
 
 Acceptance criteria:
-- Page opens through a local server.
-- CSS and JS are loaded.
+- `npm run dev` starts the Vite dev server.
+- Page opens in the browser at the Vite URL.
+- Tailwind utility classes render correctly.
+- JavaScript file is loaded.
 - No console errors.
 
 ## Stage 1 — Static game interface
