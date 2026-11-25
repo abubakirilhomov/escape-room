@@ -39,6 +39,13 @@
 - [ ] Overlay test va `hidden` qaytarish
 - [ ] Batafsil: `team/jahongir.md`
 
+### Anisaxon — Start Screen (`feature/start-screen`)
+- [ ] O'yin nomi (Escape Room + Secret Laboratory)
+- [ ] Hikoya matni (qorong'i panelda)
+- [ ] "O'yinni boshlash" tugmasi (moviy, katta)
+- [ ] Responsive dizayn (telefon va kompyuter uchun)
+- [ ] Batafsil: `team/anisaxon.md`
+
 ---
 
 ## Stage 2 — Player and room data

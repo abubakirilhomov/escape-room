@@ -8,6 +8,7 @@
 | Sarvar | 14 | IT, YouTube | `feature/header-status` | Header va Status Bar — health, timer |
 | Jahongir | 12 | Taekwondo, PUBG | `feature/feedback-ending` | Feedback Panel va Game Ending overlay |
 | Abdurahmon | 13 | Futbol, PUBG | `feature/inventory-panel` | Inventory Panel — buyumlar ro'yxati |
+| Anisaxon | 13 | Mushuklar, gullar, sayr | `feature/start-screen` | Start Screen — boshlang'ich ekran |
 
 ## Ish tartibi
 
