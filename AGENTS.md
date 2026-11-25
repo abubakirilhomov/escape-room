@@ -81,3 +81,78 @@ A task is complete only when:
 - the relevant manual tests pass;
 - the student can explain the code;
 - documentation is updated if a rule or structure changed.
+
+## 8. Git workflow rules
+
+This project uses a branch-based workflow. The teamlead manages `main`. Each student works on their own feature branch.
+
+### Branch rules
+
+- **Never commit or push directly to `main`.** Only the teamlead merges into `main`.
+- Each student has an assigned branch (see `team/TEAM.md`). Create it from the latest `main`:
+  ```
+  git checkout main
+  git pull origin main
+  git checkout -b feature/[branch-name]
+  ```
+- If the branch already exists remotely, check it out instead of creating a new one:
+  ```
+  git checkout feature/[branch-name]
+  git pull origin feature/[branch-name]
+  ```
+- Do not create branches outside your assignment without teamlead approval.
+
+### Commits
+
+- Commit after every small, meaningful change — not at the end of a long session.
+- Write commit messages in lowercase Uzbek or English, describing what was done:
+  ```
+  git add .
+  git commit -m "header ga health display qo'shildi"
+  ```
+- Do not commit `node_modules/`, `dist/` or `.DS_Store`. These are in `.gitignore`.
+- Do not commit broken code that crashes on load. Run `npm run dev` and check the browser before committing.
+
+### Push and pull
+
+- Always pull before starting work:
+  ```
+  git pull origin feature/[branch-name]
+  ```
+- Push your branch when a task is finished or at the end of a session:
+  ```
+  git push origin feature/[branch-name]
+  ```
+- Do not run `git push origin main`.
+
+### Merging
+
+- **Do not merge your branch into `main` yourself.** Tell the teamlead when your task is ready.
+- Do not run `git merge main` into your branch unless the teamlead asks you to.
+- If the teamlead asks you to update your branch from `main`, use:
+  ```
+  git checkout feature/[branch-name]
+  git pull origin main
+  ```
+  Resolve any conflicts, then commit and push.
+
+### Conflict resolution
+
+- If `git pull` reports a merge conflict, do not force-push or delete files.
+- Open the conflicted file, look for `<<<<<<<`, `=======` and `>>>>>>>` markers.
+- Keep the correct version of both changes, remove the markers, then:
+  ```
+  git add .
+  git commit -m "merge conflict hal qilindi"
+  ```
+- If the conflict is unclear, stop and ask the teamlead.
+
+### Forbidden commands
+
+Do not run these commands without explicit teamlead permission:
+- `git push --force` or `git push -f`
+- `git reset --hard`
+- `git rebase`
+- `git merge main` (into your branch)
+- `git branch -D` (deleting branches)
+- Any command that rewrites history on a shared branch.
