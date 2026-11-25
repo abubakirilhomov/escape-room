@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escape Room: Secret Laboratory</title>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen font-sans">
+
+  <!-- ===== SARVAR: Header va Status Bar ===== -->
+  <header id="game-header" class="bg-gray-900 border-b border-gray-700 p-4">
+    <!-- TODO: Game title, health display, timer display -->
+  </header>
+
+  <!-- ===== MAIN GAME LAYOUT ===== -->
+  <main class="max-w-5xl mx-auto p-4 flex flex-col md:flex-row gap-4 mt-4">
+
+    <!-- ===== IBROHIM: Room Panel ===== -->
+    <section id="room-panel" class="flex-1" aria-labelledby="room-title">
+      <!-- TODO: Room title, description, action buttons -->
+    </section>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="w-full md:w-72 flex flex-col gap-4">
+
+      <!-- ===== ABDURAHMON: Inventory Panel ===== -->
+      <section id="inventory-panel">
+        <!-- TODO: Inventory heading, item list, empty state -->
+      </section>
+
+      <!-- ===== JAHONGIR: Feedback Panel ===== -->
+      <section id="feedback-panel" aria-live="polite">
+        <!-- TODO: Feedback heading, message text -->
+      </section>
+
+    </aside>
+  </main>
+
+  <!-- ===== JAHONGIR: Game Ending Overlay ===== -->
+  <section id="game-ending" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+    <!-- TODO: Ending title, message, restart button -->
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

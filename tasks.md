@@ -1,22 +1,45 @@
 # Vazifalar
 
-## Stage 0 — Project foundation ⬅️ hozirgi bosqich
+## Stage 0 — Project foundation ✅ TAYYOR
 
-- [ ] `npm create vite@latest` bilan loyiha yaratish (Vanilla JS template)
-- [ ] `npm install -D tailwindcss @tailwindcss/vite` o'rnatish
-- [ ] `vite.config.js` da `@tailwindcss/vite` plugin sozlash
-- [ ] `src/style.css` yaratish (`@import "tailwindcss"`)
-- [ ] `src/main.js` yaratish (`import "./style.css"` + placeholder init)
-- [ ] `index.html` yangilash: `src/main.js` module sifatida ulash, semantic struktura
-- [ ] `npm run dev` ishlashini tekshirish
-- [ ] Placeholder section lar Tailwind class lar bilan qo'shish
+- [x] Vite + Tailwind CSS v4 loyiha yaratildi
+- [x] `vite.config.js`, `package.json` sozlandi
+- [x] `src/style.css` va `src/main.js` yaratildi
+- [x] `index.html` asosiy layout bilan yaratildi
+- [x] `npm run dev` ishlaydi
+- [x] Jamoa fayllari tayyorlandi
 
-## Stage 1 — Static game interface
+## Stage 1 — Static game interface ⬅️ hozirgi bosqich
 
-- [ ] Header, health display, timer display yaratish
-- [ ] Room panel va inventory panel yaratish
-- [ ] Placeholder room text va button lar qo'shish
-- [ ] Responsive layout (Tailwind breakpoints bilan)
+### Sarvar — Header va Status Bar (`feature/header-status`)
+- [ ] Game title qo'shish
+- [ ] Health display (❤️ 100, yashil)
+- [ ] Timer display (⏱️ 30:00, sariq)
+- [ ] Responsive layout (flex, justify-between)
+- [ ] Batafsil: `team/sarvar.md`
+
+### Ibrohim — Room Panel (`feature/room-panel`)
+- [ ] Room title va description qo'shish
+- [ ] Action button lar (Tekshirish, Eshik ochish)
+- [ ] Panel styling (bg-gray-900, rounded, border)
+- [ ] Hover effect lar
+- [ ] Batafsil: `team/ibrohim.md`
+
+### Abdurahmon — Inventory Panel (`feature/inventory-panel`)
+- [ ] Inventory sarlavha va ro'yxat
+- [ ] Bo'sh holat ("Hech narsa yo'q")
+- [ ] Buyum namunasi (placeholder, keyin o'chiriladi)
+- [ ] Panel styling
+- [ ] Batafsil: `team/abdurahmon.md`
+
+### Jahongir — Feedback Panel va Game Ending (`feature/feedback-ending`)
+- [ ] Feedback panel (Log sarlavha + xabar matni)
+- [ ] Game ending overlay (hidden, markazda panel)
+- [ ] Restart button
+- [ ] Overlay test va `hidden` qaytarish
+- [ ] Batafsil: `team/jahongir.md`
+
+---
 
 ## Stage 2 — Player and room data
 
@@ -42,28 +65,25 @@
 ## Stage 5 — Puzzles
 
 - [ ] Research terminal puzzle
-- [ ] Javobni `trim()` va case conversion bilan normalize qilish
+- [ ] Javobni normalize qilish
 - [ ] Security override puzzle
-- [ ] Yechilgan holatni `gameState.progress` da saqlash
+- [ ] Yechilgan holatni saqlash
 
 ## Stage 6 — Timer and game endings
 
-- [ ] `setInterval` bilan countdown
-- [ ] Sekundlarni minut:sekund formatida ko'rsatish
-- [ ] Win, loss va restart da timer to'xtatish
+- [ ] Countdown timer
+- [ ] Vaqt formatlash
 - [ ] Victory va defeat panel lari
+- [ ] Restart funksiyasi
 
 ## Stage 7 — Polish and playtesting
 
 - [ ] Vizual feedback yaxshilash
-- [ ] Room artwork / sound (vaqt bo'lsa)
 - [ ] Barcha yo'llarni test qilish
-- [ ] Console error va layout muammolarni tuzatish
+- [ ] Bug fix
 
 ## Stage 8 — Optional extensions
 
-- [ ] `localStorage` bilan eng yaxshi vaqtni saqlash
+- [ ] `localStorage` bilan best time
 - [ ] Sound toggle
 - [ ] Qo'shimcha xonalar
-- [ ] Hint tizimi
-- [ ] Qiyinlik darajalari
