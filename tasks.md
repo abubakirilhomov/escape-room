@@ -11,6 +11,14 @@
 
 ## Stage 1 — Static game interface ⬅️ hozirgi bosqich
 
+### Anisaxon — Start Screen (`feature/start-screen`)
+- [ ] **Task 1:** Sarlavha — `🔬 Escape Room` va `Secret Laboratory` matni
+- [ ] **Task 2:** Hikoya matni paneli (voqea tavsifi, ogohlantirish)
+- [ ] **Task 3:** "🚀 O'yinni boshlash" tugmasi
+- [ ] **Task 4 (bonus):** Pastki kichik matn — "Xonalarni tekshiring..."
+- [ ] Batafsil: `team/anisaxon.md`
+
+
 ### Sarvar — Header va Status Bar (`feature/header-status`)
 - [ ] Game title qo'shish
 - [ ] Health display (❤️ 100, yashil)
