@@ -33,10 +33,10 @@
 - [ ] Batafsil: `team/abdurahmon.md`
 
 ### Jahongir — Feedback Panel va Game Ending (`feature/feedback-ending`)
-- [ ] Feedback panel (Log sarlavha + xabar matni)
-- [ ] Game ending overlay (hidden, markazda panel)
-- [ ] Restart button
-- [ ] Overlay test va `hidden` qaytarish
+- [x] Feedback panel (Log sarlavha + xabar matni)
+- [x] Game ending overlay (hidden, markazda panel)
+- [x] Restart button
+- [x] Overlay test va `hidden` qaytarish
 - [ ] Batafsil: `team/jahongir.md`
 
 ---
