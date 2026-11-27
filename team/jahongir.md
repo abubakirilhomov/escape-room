@@ -1,99 +1,114 @@
-# 🥋 Jahongir — Feedback Panel va Game Ending
+# 🥋 Jahongir — Game State va Feedback Logic (Stage 2)
 
-> PUBG da o'yin oxirida "Winner Winner Chicken Dinner" yoki "Better Luck Next Time" chiqadi. Bu o'yinda ham shunday! Plus, o'yin davomida xabarlar chiqadigan panel bo'ladi — kill feed ga o'xshab.
+> PUBG da o'yin boshlanganda sening HP = 100, backpack bo'sh, vaqt ketmoqda va o'yin holati "playing" bo'ladi. Shularning barchasini bitta JavaScript obyektida saqlaymiz — bu o'yinning "miyasi" (`gameState`)!
 
 ## 📋 Vazifa
 
-**Branch:** `feature/feedback-ending`
+**Branch:** `feature/game-state`
 
-`index.html` dagi ikki joyni to'ldir:
-1. `<!-- ===== JAHONGIR: Feedback Panel ===== -->` — o'yin ichidagi xabarlar
-2. `<!-- ===== JAHONGIR: Game Ending Overlay ===== -->` — o'yin yakuniy ekrani
+Stage 1 da sen zo'r ishlading! Endi `src/main.js` faylida o'yinning asosiy holatini (`gameState`) va o'zing yaratgan `#feedback-text` panelini boshqaruvchi funksiyani yozasan.
 
----
-
-## ✅ 1-qism: Feedback Panel
-
-### 1-qadam: Panel tashqi ko'rinishi
-`<section id="feedback-panel">` ga class lar qo'sh:
-```html
-<section id="feedback-panel" class="bg-gray-900 rounded-lg border border-amber-700/50 p-4" aria-live="polite">
-  <!-- ichiga elementlar ketadi -->
-</section>
-```
-- `border-amber-700/50` — sariqish chegara (50% shaffof)
-- `aria-live="polite"` — ekran o'quvchi uchun (accessibility)
-
-### 2-qadam: Sarlavha
-```html
-<h3 class="text-md font-bold text-amber-400 mb-2">📋 Log</h3>
-```
-
-### 3-qadam: Xabar matni
-```html
-<p id="feedback-text" class="text-gray-400 text-sm">
-  Maxfiy laboratoriyaga xush kelibsiz...
-</p>
-```
+> ⚠️ **Muhim:** `index.html` fayliga tegma! Boshqa bolalar hozir `index.html` da ishlayapti, shuning uchun `src/main.js` da ishlaymiz.
 
 ---
 
-## ✅ 2-qism: Game Ending Overlay
+## ✅ Nima qilish kerak
 
-### 1-qadam: Ichki panel
-`<section id="game-ending">` ning ichiga qo'sh:
-```html
-<div class="bg-gray-900 border border-gray-600 rounded-xl p-8 text-center max-w-md">
-  <h2 id="ending-title" class="text-2xl font-bold mb-4">🏆 Tabriklaymiz!</h2>
-  <p id="ending-message" class="text-gray-300 mb-6">
-    Siz laboratoriyadan muvaffaqiyatli chiqdingiz!
-  </p>
-  <button id="restart-button" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-6 rounded-lg transition-colors">
-    🔄 Qaytadan o'ynash
-  </button>
-</div>
+`src/main.js` faylini ochib, `import "./style.css";` dan keyin quyidagilarni qo'sh:
+
+### 1-qadam: O'yin sozlamalari (`GAME_CONFIG`)
+
+Raqamlarni shunchaki kod ichiga tashlab ketmaslik uchun ularni bitta obyektga yig'amiz:
+
+```js
+const GAME_CONFIG = {
+  initialHealth: 100,
+  initialTimeSeconds: 1800,
+  startingRoomId: "reception"
+};
+```
+- `1800` soniya = `30` daqiqa (`30 * 60`).
+- Qo'shtirnoqlar doim ikkitalik (`"..."`) bo'lsin!
+
+### 2-qadam: Boshlang'ich holatni yaratuvchi funksiya (`createInitialState`)
+
+Har safar yangi o'yin yoki Restart bosilganda toza holat qaytaradigan funksiya:
+
+```js
+function createInitialState() {
+  return {
+    player: {
+      name: "Player",
+      health: GAME_CONFIG.initialHealth,
+      inventory: []
+    },
+    currentRoomId: GAME_CONFIG.startingRoomId,
+    timeLeft: GAME_CONFIG.initialTimeSeconds,
+    status: "playing",
+    progress: {
+      researchTerminalUnlocked: false,
+      securityDisabled: false
+    }
+  };
+}
+
+let gameState = createInitialState();
+```
+- `let gameState` — chunki Restart paytida unga yangi obyekt beriladi.
+- `status` qiymatlari: `"playing"`, `"won"`, `"lost"`.
+
+### 3-qadam: Feedback chiqarish funksiyasi (`renderFeedback`)
+
+Stage 1 da sen `index.html` da `<p id="feedback-text">` yaratgan eding. Endi JS orqali uning matnini o'zgartiramiz:
+
+```js
+function renderFeedback(message) {
+  const feedbackElement = document.querySelector("#feedback-text");
+  if (!feedbackElement) {
+    return;
+  }
+  feedbackElement.textContent = message;
+}
+```
+- `document.querySelector("#feedback-text")` — HTML dan elementni ID bo'yicha topadi.
+- `textContent` — matnni xavfsiz o'zgartiradi (`innerHTML` ishlatmaymiz!).
+
+### 4-qadam: Boshlang'ich ishga tushirish (`initializeGame`)
+
+Sahifa yuklanganda o'yinni boshlash va `renderFeedback` ni tekshirish:
+
+```js
+function initializeGame() {
+  gameState = createInitialState();
+  renderFeedback("Laboratoriya qulflandi. Chiqish yo'lini toping!");
+  console.log("O'yin holati:", gameState);
+}
+
+initializeGame();
 ```
 
-### Qanday ishlaydi
-
-Tashqi `<section id="game-ending">` da `class="hidden"` bor — shuning uchun ko'rinmaydi. JavaScript keyin `hidden` ni olib tashlaydi va overlay ko'rinadi:
-- `fixed inset-0` — butun ekranni qoplaydi
-- `bg-black/80` — qora fon, 80% shaffof (orqadagi o'yin ko'rinib turadi)
-- `z-50` — eng ustki qatlam
-
-### 2-qadam: Test uchun ko'rish
-
-Overlay qanday ko'rinishini ko'rmoqchi bo'lsang, `hidden` class ni vaqtincha o'chir:
-```html
-<!-- hidden o'chirilgan — faqat test uchun! -->
-<section id="game-ending" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-```
-> ⚠️ **Muhim:** Test qilib ko'rgandan keyin `hidden` ni qaytib qo'y!
+---
 
 ## 🧪 Tekshirish
 
 1. `npm run dev` ishga tushir
-2. **Feedback panel** (o'ng pastda):
-   - "📋 Log" sarlavhasi (sariq)
-   - "Maxfiy laboratoriyaga xush kelibsiz..." matni
-   - Sariqish chegara bilan panel
-3. **Game ending** (hidden o'chirganda):
-   - Butun ekranni qoplaydigan qora shaffof fon
-   - Markazda oq panel: sarlavha, xabar, button
-   - "Qaytadan o'ynash" button iga sichqoncha olib borganda rang o'zgaradi
-4. `hidden` ni qaytib qo'y va overlay yo'qolganini tekshir
-5. Consol da xatolik yo'q
+2. Brauzerda sahifani och:
+   - O'ng pastki **📋 Log** panelida `"Laboratoriya qulflandi. Chiqish yo'lini toping!"` yozuvi ko'rinishi kerak.
+3. **F12 → Console** ni och:
+   - Hech qanday qizil xatolik yo'q.
+   - `O'yin holati:` va uning ichida `player`, `currentRoomId: "reception"`, `timeLeft: 1800`, `status: "playing"` ko'rinishi kerak.
+4. `npm run build` qilib ham tekshir — xatosiz yig'ilishi kerak.
 
-## 💡 Tailwind tushuntirish
+---
 
-| Class | Nima qiladi |
+## 💡 JavaScript tushuntirish
+
+| Tushuncha | Nima qiladi |
 |---|---|
-| `fixed inset-0` | Butun ekranni qoplaydi (overlay) |
-| `bg-black/80` | Qora fon, 80% shaffoflik |
-| `z-50` | Eng yuqori qatlam (boshqa element lar ustida) |
-| `hidden` | Element ni yashiradi (ko'rinmaydi) |
-| `rounded-xl` | Katta yumaloq burchak |
-| `text-center` | Matnni markazga tekislaydi |
-| `max-w-md` | Panelning maksimal kengligi (o'rtacha) |
-| `border-amber-700/50` | Sariqish chegara, 50% shaffof |
-| `aria-live="polite"` | Ekran o'quvchi yangi xabarni aytib beradi |
+| `const` | O'zgarmaydigan o'zgaruvchi (odatda shuni ishlatamiz) |
+| `let` | Keyinroq qayta qiymat beriladigan o'zgaruvchi |
+| `Object ({ ... })` | Ma'lumotlarni kalit-qiymat juftligida saqlaydi (`player.health`) |
+| `Array ([])` | Ro'yxat saqlaydi (hozircha `inventory` bo'sh) |
+| `function` | Qayta ishlatiladigan kod bloki |
+| `document.querySelector` | HTML elementini JS da topib beradi |
+| `textContent` | Element ichidagi matnni o'zgartiradi |

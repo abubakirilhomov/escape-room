@@ -50,10 +50,17 @@
 
 ## Stage 2 — Player and room data
 
-- [ ] `gameState` object yaratish
-- [ ] 4 ta xonani array da aniqlash
-- [ ] Item larni array da aniqlash
-- [ ] Joriy xona nomi va tavsifini data dan ko'rsatish
+### Jahongir — Game State va Feedback Logic (`feature/game-state`)
+- [ ] `GAME_CONFIG` va `createInitialState()` yaratish (`src/main.js`)
+- [ ] `gameState` obyektini sozlash (`player`, `currentRoomId`, `timeLeft`, `status`, `progress`)
+- [ ] `renderFeedback(message)` funksiyasini yozish
+- [ ] `initializeGame()` bilan test qilish
+- [ ] Batafsil: `team/jahongir.md`
+
+### Keyingi vazifalar (Stage 1 tugagach taqsimlanadi)
+- [ ] 4 ta xonani array da aniqlash (`rooms`)
+- [ ] Item larni array da aniqlash (`items`)
+- [ ] Joriy xona nomi va tavsifini data dan ko'rsatish (`renderRoom`)
 
 ## Stage 3 — Inventory
 
