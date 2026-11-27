@@ -34,16 +34,27 @@
       </section>
 
       <!-- ===== JAHONGIR: Feedback Panel ===== -->
-      <section id="feedback-panel" aria-live="polite">
-        <!-- TODO: Feedback heading, message text -->
+      <section id="feedback-panel" class="bg-gray-900 rounded-lg border border-amber-700/50 p-4" aria-live="polite">
+        <h3 class="text-md font-bold text-amber-400 mb-2">📋 Log</h3>
+        <p id="feedback-text" class="text-gray-400 text-sm">
+          Maxfiy laboratoriyaga xush kelibsiz...
+        </p>
       </section>
 
     </aside>
   </main>
 
   <!-- ===== JAHONGIR: Game Ending Overlay ===== -->
-  <section id="game-ending" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-    <!-- TODO: Ending title, message, restart button -->
+  <section id="game-ending" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50" aria-labelledby="ending-title">
+    <div class="bg-gray-900 border border-gray-600 rounded-xl p-8 text-center max-w-md mx-4">
+      <h2 id="ending-title" class="text-2xl font-bold mb-4">🏆 Tabriklaymiz!</h2>
+      <p id="ending-message" class="text-gray-300 mb-6">
+        Siz laboratoriyadan muvaffaqiyatli chiqdingiz!
+      </p>
+      <button id="restart-button" type="button" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-6 rounded-lg transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400">
+        🔄 Qaytadan o'ynash
+      </button>
+    </div>
   </section>
 
   <script type="module" src="/src/main.js"></script>
