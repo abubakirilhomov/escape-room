@@ -46,3 +46,11 @@
 - Har bir o'quvchiga alohida branch va UI section berildi
 - index.html da TODO kommentlar bilan bo'limlar belgilandi
 - Merge conflict lar minimal bo'lishi uchun section lar ajratilgan
+
+---
+
+## Stage 1 — Static game interface (jarayonda) — 2026-11-27
+
+### Qabul qilingan ishlar
+
+- [x] **Jahongir** (`feature/feedback-ending`) — Feedback Panel (`#feedback-panel`) va Game Ending Overlay (`#game-ending`) qo'shildi va `main` ga birlashtirildi

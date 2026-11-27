@@ -32,12 +32,12 @@
 - [ ] Panel styling
 - [ ] Batafsil: `team/abdurahmon.md`
 
-### Jahongir — Feedback Panel va Game Ending (`feature/feedback-ending`)
+### Jahongir — Feedback Panel va Game Ending (`feature/feedback-ending`) ✅ TAYYOR
 - [x] Feedback panel (Log sarlavha + xabar matni)
 - [x] Game ending overlay (hidden, markazda panel)
 - [x] Restart button
 - [x] Overlay test va `hidden` qaytarish
-- [ ] Batafsil: `team/jahongir.md`
+- Batafsil: `team/jahongir.md`
 
 ### Anisaxon — Start Screen (`feature/start-screen`)
 - [ ] O'yin nomi (Escape Room + Secret Laboratory)
